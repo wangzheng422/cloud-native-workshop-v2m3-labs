@@ -3,7 +3,7 @@
 USERXX=$1
 DELAY=$2
 
-if [ -z $USERXX ]
+if [ -z "$USERXX" -o "$USERXX" = "userXX" ]
   then
     echo "Usage: Input your username like deploy-inventory.sh user1"
     exit;
@@ -16,6 +16,9 @@ oc project $USERXX-inventory || oc new-project $USERXX-inventory
 oc delete dc,deployment,bc,build,svc,route,pod,is --all
 
 echo "Waiting 30 seconds to finialize deletion of resources..."
+sleep 30
+
+echo "Waiting 30 seconds to finalize deletion of resources..."
 sleep 30
 
 oc new-app -e POSTGRESQL_USER=inventory \

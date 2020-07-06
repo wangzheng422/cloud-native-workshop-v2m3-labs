@@ -9,6 +9,7 @@ if [ -z "$USERXX" -o "$USERXX" = "userXX" ]
     exit;
 fi
 
+
 echo Your username is $USERXX
 echo Deploy Catalog service........
 
